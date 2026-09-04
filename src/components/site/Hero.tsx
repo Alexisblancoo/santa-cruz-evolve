@@ -36,7 +36,7 @@ export function Hero() {
           className="display-xl text-primary-foreground text-[clamp(2.7rem,11vw,9rem)]"
         >
           <span className="block">Santa Cruz</span>
-          <span className="block text-[color:oklch(0.88_0.09_150)]">Sostenible</span>
+          <span className="block text-primary-foreground/75">Sostenible</span>
         </motion.h1>
 
         <motion.p
