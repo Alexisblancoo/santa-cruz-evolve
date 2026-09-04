@@ -66,7 +66,7 @@ export function Navbar() {
             className={[
               "border px-5 py-2 text-[0.68rem] tracking-[0.22em] transition-all duration-500",
               solid
-                ? "border-primary bg-primary text-primary-foreground hover:bg-leaf"
+                ? "border-primary bg-primary text-primary-foreground hover:bg-forest"
                 : "border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground hover:text-primary",
             ].join(" ")}
           >
