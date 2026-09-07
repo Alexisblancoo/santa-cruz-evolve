@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Handshake, LineChart, Trees } from "lucide-react";
 
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Una ciudad que evoluciona: espacios públicos, naturaleza y futuro para Santa Cruz de la Sierra.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Landing,
@@ -94,6 +97,45 @@ function Landing() {
             fortaleciendo sus áreas verdes y construyendo una ciudad más sostenible.
           </p>
         </Reveal>
+
+        <div className="mt-24 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border">
+          {[
+            {
+              icon: Trees,
+              number: "01",
+              title: "Espacios",
+              text: "Recuperar y cuidar los lugares que compartimos.",
+            },
+            {
+              icon: Handshake,
+              number: "02",
+              title: "Alianzas",
+              text: "Conectar empresas, instituciones y comunidad.",
+            },
+            {
+              icon: LineChart,
+              number: "03",
+              title: "Impacto",
+              text: "Hacer visible cada avance de la ciudad.",
+            },
+          ].map((pillar, index) => {
+            const Icon = pillar.icon;
+            return (
+              <Reveal key={pillar.title} delay={index * 0.1}>
+                <article className="group flex min-h-72 flex-col justify-between border-b border-border px-1 py-9 last:border-b-0 md:border-b-0 md:px-10 md:py-12 first:md:pl-0 last:md:pr-0">
+                  <div className="flex items-center justify-between text-primary">
+                    <Icon aria-hidden="true" strokeWidth={1.4} className="size-7 transition-transform duration-700 group-hover:-translate-y-1" />
+                    <span className="text-[0.65rem] tracking-[0.24em] text-muted-foreground">{pillar.number}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-3xl font-semibold text-foreground">{pillar.title}</h3>
+                    <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{pillar.text}</p>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
       </section>
 
       <CityBand />

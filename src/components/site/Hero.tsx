@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import heroImg from "@/assets/hero-santa-cruz.jpg";
+import heroMotion from "@/assets/hero-santa-cruz-motion.mp4.asset.json";
+import heroMotionWebm from "@/assets/hero-santa-cruz-motion.webm.asset.json";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -22,6 +24,18 @@ export function Hero() {
           fetchPriority="high"
           className="h-full w-full object-cover"
         />
+        <video
+          className="hero-motion-video absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImg}
+          aria-hidden="true"
+        >
+          <source src={heroMotionWebm.url} type="video/webm" />
+          <source src={heroMotion.url} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-forest/55 via-forest/25 to-forest/70" />
       </motion.div>
 
