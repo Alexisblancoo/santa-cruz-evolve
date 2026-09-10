@@ -7,7 +7,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Distritos() {
   const [activo, setActivo] = useState(1);
-  const distrito = DISTRITOS[activo - 1];
+  const distrito = DISTRITOS[activo - 1] ?? DISTRITOS[0]!;
 
   return (
     <section id="distritos" className="border-t border-border bg-secondary">
