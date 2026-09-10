@@ -6,6 +6,7 @@ import { Handshake, LineChart, Trees } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { Reveal } from "@/components/site/Reveal";
+import { Distritos } from "@/components/site/Distritos";
 
 import ciudadImg from "@/assets/ciudad.jpg";
 import espacio1 from "@/assets/espacio-1.jpg";
@@ -277,6 +278,9 @@ function Landing() {
           </div>
         </Reveal>
       </section>
+
+      {/* DISTRITOS */}
+      <Distritos />
 
       {/* IMPACTO */}
       <section id="impacto" className="border-t border-border">
