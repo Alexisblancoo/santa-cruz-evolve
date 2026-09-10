@@ -80,61 +80,99 @@ function Landing() {
       <Hero />
 
       {/* UNA CIUDAD. UN FUTURO. */}
-      <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-44">
-        <Reveal>
-          <span className="rule-green" />
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="mt-10 display-xl text-foreground text-[clamp(2.2rem,7.5vw,6rem)]">
-            Una ciudad.
-            <br />
-            <span className="text-primary">Un futuro.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.24}>
-          <p className="mt-12 max-w-xl text-base leading-relaxed font-light text-muted-foreground md:ml-auto md:text-lg">
-            Santa Cruz tiene la oportunidad de crecer de una manera diferente: cuidando sus espacios públicos,
-            fortaleciendo sus áreas verdes y construyendo una ciudad más sostenible.
-          </p>
-        </Reveal>
+      <section className="overflow-hidden">
+        <div className="mx-auto max-w-[1400px] px-6 pt-28 md:px-10 md:pt-44">
+          <Reveal>
+            <div className="flex items-center gap-5">
+              <span className="rule-green" />
+              <span className="text-[0.68rem] tracking-[0.26em] text-muted-foreground">NUESTRA VISIÓN</span>
+            </div>
+          </Reveal>
 
-        <div className="mt-24 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border">
-          {[
-            {
-              icon: Trees,
-              number: "01",
-              title: "Espacios",
-              text: "Recuperar y cuidar los lugares que compartimos.",
-            },
-            {
-              icon: Handshake,
-              number: "02",
-              title: "Alianzas",
-              text: "Conectar empresas, instituciones y comunidad.",
-            },
-            {
-              icon: LineChart,
-              number: "03",
-              title: "Impacto",
-              text: "Hacer visible cada avance de la ciudad.",
-            },
-          ].map((pillar, index) => {
-            const Icon = pillar.icon;
-            return (
-              <Reveal key={pillar.title} delay={index * 0.1}>
-                <article className="group flex min-h-72 flex-col justify-between border-b border-border px-1 py-9 last:border-b-0 md:border-b-0 md:px-10 md:py-12 first:md:pl-0 last:md:pr-0">
-                  <div className="flex items-center justify-between text-primary">
-                    <Icon aria-hidden="true" strokeWidth={1.4} className="size-7 transition-transform duration-700 group-hover:-translate-y-1" />
-                    <span className="text-[0.65rem] tracking-[0.24em] text-muted-foreground">{pillar.number}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-3xl font-semibold text-foreground">{pillar.title}</h3>
-                    <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{pillar.text}</p>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
+          <div className="mt-10 grid gap-12 md:grid-cols-12">
+            <Reveal className="md:col-span-7" delay={0.1}>
+              <h2 className="display-xl text-foreground text-[clamp(2.2rem,7.5vw,6rem)]">
+                Una ciudad.
+                <br />
+                <span className="text-primary">Un futuro.</span>
+              </h2>
+            </Reveal>
+            <Reveal className="md:col-span-5 md:pt-8" delay={0.24}>
+              <p className="max-w-xl text-base leading-relaxed font-light text-muted-foreground md:text-lg">
+                Santa Cruz tiene la oportunidad de crecer de una manera diferente: cuidando sus espacios públicos,
+                fortaleciendo sus áreas verdes y construyendo una ciudad más sostenible.
+              </p>
+              <ul className="mt-10 space-y-4">
+                {["Más áreas verdes por barrio", "Espacios públicos cuidados", "Aliados que transforman"].map(
+                  (item) => (
+                    <li key={item} className="flex items-center gap-4">
+                      <span aria-hidden="true" className="h-px w-6 bg-leaf" />
+                      <span className="text-[0.7rem] tracking-[0.22em] text-foreground/80 uppercase">{item}</span>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </Reveal>
+          </div>
+
+          <div className="mt-24 grid border-y border-border md:grid-cols-3 md:divide-x md:divide-border">
+            {[
+              {
+                icon: Trees,
+                number: "01",
+                title: "Espacios",
+                text: "Recuperar y cuidar los lugares que compartimos.",
+              },
+              {
+                icon: Handshake,
+                number: "02",
+                title: "Alianzas",
+                text: "Conectar empresas, instituciones y comunidad.",
+              },
+              {
+                icon: LineChart,
+                number: "03",
+                title: "Impacto",
+                text: "Hacer visible cada avance de la ciudad.",
+              },
+            ].map((pillar, index) => {
+              const Icon = pillar.icon;
+              return (
+                <Reveal key={pillar.title} delay={index * 0.1}>
+                  <article className="group flex min-h-72 flex-col justify-between gap-14 border-b border-border px-1 py-10 transition-colors duration-700 last:border-b-0 hover:bg-secondary md:border-b-0 md:px-10 md:py-14 first:md:pl-0 last:md:pr-0">
+                    <div className="flex items-start justify-between">
+                      <div className="grid size-12 place-items-center border border-border bg-mist text-primary transition-colors duration-700 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Icon aria-hidden="true" strokeWidth={1.4} className="size-6" />
+                      </div>
+                      <span className="font-display text-4xl font-light text-primary/20 transition-colors duration-700 group-hover:text-primary/60 md:text-5xl">
+                        {pillar.number}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="font-display text-3xl font-semibold text-foreground">{pillar.title}</h3>
+                      <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">{pillar.text}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Cinta tipográfica en movimiento */}
+        <div aria-hidden="true" className="mt-20 border-b border-border py-8 md:mt-28 md:py-10">
+          <div className="marquee flex w-max items-center gap-10 whitespace-nowrap">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex items-center gap-10">
+                {["Espacios públicos", "Áreas verdes", "Comunidad", "Futuro", "Santa Cruz"].map((word) => (
+                  <span key={word} className="flex items-center gap-10">
+                    <span className="display-xl text-4xl text-primary/15 md:text-6xl">{word}</span>
+                    <span className="size-2 rounded-full bg-leaf/40" />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
