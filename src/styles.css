@@ -113,6 +113,10 @@
     background: var(--leaf);
     color: white;
   }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @utility display-xl {
@@ -130,9 +134,26 @@
   background: var(--leaf);
 }
 
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee {
+  animation: marquee-x 46s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-motion-video {
     display: none;
+  }
+
+  .marquee {
+    animation: none;
   }
 }
 
